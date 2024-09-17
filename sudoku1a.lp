@@ -5,5 +5,7 @@
 % A cell (x,y) can be mapped to the subgrid labeled 1+(((x-1)/n)*n+(y-1)/n)
 
 % Your implementation please...
+n=4.
+rowColumnNumber(x,y,z).
 
 #show sudoku/3.
