@@ -6,6 +6,16 @@
 
 % Your implementation please...
 n=4.
-rowColumnNumber(x,y,z).
+
+% Each cell (row, column) must contain exactly one number (between 1 and n)
+1 { answerCell(row, column, number) : number = 1..n } 1 :- row = 1..n, column = 1..n.
+
+% Constraints
+% No two cells in the same row can have the same number
+:- answerCell(row, column1, number), answerCell(row, column2, number), column1 != column2.
+
+% No two cells in the same column can have the same number
+:- answerCell(row1, column, number), answerCell(row2, column, number), row1 != row2.
+
 
 #show sudoku/3.
