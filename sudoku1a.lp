@@ -7,16 +7,15 @@
 % Define the grid size
 #const n = 4.
 
-% Each cell (row, column) must contain exactly one number (between 1 and n)
-1 { answerCell(row, column, number) : number = 1..n } 1 :- row = 1..n, column = 1..n.
+% Each cell (Row, Column) must contain exactly one number (between 1 and n)
+1 { answerCell(Row, Column, Number) : Number = 1..n } 1 :- Row = 1..n, Column = 1..n.
 
 % Constraints
 % No two cells in the same row can have the same number
-:- answerCell(row, column, number), answerCell(row, column1, number), column != column1.
+:- answerCell(Row, Column, Number), answerCell(Row, Column1, Number), Column != Column1.
 
 % No two cells in the same column can have the same number
-:- answerCell(row, column, number), answerCell(row1, column, number), row != row1.
-
+:- answerCell(Row, Column, Number), answerCell(Row1, Column, Number), Row != Row1.
 
 #show answerCell/3.
 
