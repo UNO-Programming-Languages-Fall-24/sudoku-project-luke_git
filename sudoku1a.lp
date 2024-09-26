@@ -8,14 +8,14 @@
 #const n = 4.
 
 % Each cell (Row, Column) must contain exactly one number (between 1 and n)
-1 { answerCell(Row, Column, Number) : Number = 1..n } 1 :- Row = 1..n, Column = 1..n.
+1 { sudoku(Row, Column, Number) : Number = 1..n } 1 :- Row = 1..n, Column = 1..n.
 
 % Constraints
 % No two cells in the same row can have the same number
-:- answerCell(Row, Column, Number), answerCell(Row, Column1, Number), Column != Column1.
+:- sudoku(Row, Column, Number), sudoku(Row, Column1, Number), Column != Column1.
 
 % No two cells in the same column can have the same number
-:- answerCell(Row, Column, Number), answerCell(Row1, Column, Number), Row != Row1.
+:- sudoku(Row, Column, Number), sudoku(Row1, Column, Number), Row != Row1.
 
-#show answerCell/3.
+#show sudoku/3.
 
