@@ -7,6 +7,10 @@
 % Define the grid size
 #const n = 4.
 
+% Pre-fill cells with initial values
+sudoku(Row, Col, Num) :- initial(Row, Col, Num).
+
+% Choice Rule: 
 % Each cell (Row, Column) must contain exactly one number (between 1 and n)
 1 { sudoku(Row, Column, Number) : Number = 1..n } 1 :- Row = 1..n, Column = 1..n.
 
