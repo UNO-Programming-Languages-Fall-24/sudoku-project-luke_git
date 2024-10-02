@@ -5,22 +5,37 @@
 % A cell (x,y) can be mapped to the subgrid labeled 1+(((x-1)/n)*n+(y-1)/n)
 
 % Define the grid size
-#const n = 4.
+#const n = 9.
 
 % Pre-fill cells with initial values
 sudoku(Row, Col, Num) :- initial(Row, Col, Num).
 
-% Subgrid 1: Top-left
-subgrid(X, Y, 1) :- X = 1..2, Y = 1..2.
+% Subgrid 1: Top-left (rows 1 to 3, columns 1 to 3)
+subgrid(X, Y, 1) :- X = 1..3, Y = 1..3.
 
-% Subgrid 2: Top-right
-subgrid(X, Y, 2) :- X = 1..2, Y = 3..4.
+% Subgrid 2: Top-center (rows 1 to 3, columns 4 to 6)
+subgrid(X, Y, 2) :- X = 1..3, Y = 4..6.
 
-% Subgrid 3: Bottom-left
-subgrid(X, Y, 3) :- X = 3..4, Y = 1..2.
+% Subgrid 3: Top-right (rows 1 to 3, columns 7 to 9)
+subgrid(X, Y, 3) :- X = 1..3, Y = 7..9.
 
-% Subgrid 4: Bottom-right
-subgrid(X, Y, 4) :- X = 3..4, Y = 3..4.
+% Subgrid 4: Middle-left (rows 4 to 6, columns 1 to 3)
+subgrid(X, Y, 4) :- X = 4..6, Y = 1..3.
+
+% Subgrid 5: Middle-center (rows 4 to 6, columns 4 to 6)
+subgrid(X, Y, 5) :- X = 4..6, Y = 4..6.
+
+% Subgrid 6: Middle-right (rows 4 to 6, columns 7 to 9)
+subgrid(X, Y, 6) :- X = 4..6, Y = 7..9.
+
+% Subgrid 7: Bottom-left (rows 7 to 9, columns 1 to 3)
+subgrid(X, Y, 7) :- X = 7..9, Y = 1..3.
+
+% Subgrid 8: Bottom-center (rows 7 to 9, columns 4 to 6)
+subgrid(X, Y, 8) :- X = 7..9, Y = 4..6.
+
+% Subgrid 9: Bottom-right (rows 7 to 9, columns 7 to 9)
+subgrid(X, Y, 9) :- X = 7..9, Y = 7..9.
 
 % Choice Rule: 
 % Each cell (Row, Column) must contain exactly one number (between 1 and n)
