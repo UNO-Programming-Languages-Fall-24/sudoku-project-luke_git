@@ -34,6 +34,6 @@ subgrid(X, Y, 4) :- X = 3..4, Y = 3..4.
 :- sudoku(Row, Column, Number), sudoku(Row1, Column, Number), Row != Row1.
 
 % No two cells in the same subgrid can have the same number
-:- sudoku(X1, Y1, _), sudoku(X2, Y2, _), subgrid(X1, Y1, G), subgrid(X2, Y2, G), X1 != X2; Y1 != Y2.
+:- sudoku(X1, Y1, Number), sudoku(X2, Y2, Number), subgrid(X1, Y1, G), subgrid(X2, Y2, G), X1 != X2, Y1 != Y2.
 
 #show sudoku/3.
